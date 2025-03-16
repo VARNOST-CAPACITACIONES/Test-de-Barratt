@@ -1,0 +1,311 @@
+/* Estilos globales */
+:root {
+    --rojo: #BA0018;
+    --rojo-intenso: #D1001D; /* Versión más intensa para hover */
+    --negro: #000000;
+    --gris: #454545;
+    --burdeo: #7C0010;
+    --blanco: #FFFFFF;
+    --gris-claro: #E5E5E5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--gris-claro);
+    color: var(--negro);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--blanco);
+    min-height: 100vh;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+h1 {
+    color: var(--burdeo);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+h2 {
+    color: var(--rojo);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 15px;
+    color: var(--gris);
+}
+
+/* Logo Container */
+.logo-container {
+    text-align: center;
+    margin: 20px 0 30px;
+    padding: 15px 0;
+    border-top: 2px solid var(--burdeo);
+    border-bottom: 2px solid var(--burdeo);
+}
+
+.logo-container h2 {
+    color: var(--burdeo);
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+/* Formularios */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--gris);
+    font-weight: 500;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--rojo);
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--rojo);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s;
+    text-align: center;
+    margin-top: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background-color: var(--rojo-intenso);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn-back {
+    background-color: var(--gris);
+}
+
+.btn-back:hover {
+    background-color: var(--negro);
+}
+
+/* Opciones de respuesta */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.option {
+    position: relative;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.option:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.option.selected {
+    background-color: rgba(186, 0, 24, 0.2);
+    border-color: var(--rojo);
+    box-shadow: 0 0 0 2px var(--rojo);
+    transform: translateY(-3px);
+}
+
+.option input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.option-text {
+    padding-left: 10px;
+    font-weight: 500;
+}
+
+/* Secciones */
+.section {
+    display: none;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.section.active {
+    display: block;
+}
+
+/* Barra de progreso superior */
+.test-progress {
+    width: 100%;
+    height: 6px;
+    background-color: #ddd;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.test-progress-bar {
+    height: 100%;
+    background-color: var(--rojo);
+    width: 0%;
+    transition: width 0.5s;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Modal de carga */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--rojo);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Sección de finalización */
+.completion-box {
+    background-color: #f9f9f9;
+    border: 2px solid var(--burdeo);
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+.completion-box h1 {
+    color: var(--burdeo);
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+.completion-box p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--negro);
+}
+
+.email-sent {
+    color: var(--rojo) !important;
+    font-weight: 600 !important;
+    margin-top: 25px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    h2 {
+        font-size: 1.2rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+    }
+    
+    .completion-box {
+        padding: 20px;
+    }
+    
+    .completion-box h1 {
+        font-size: 1.7rem;
+    }
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Impulsividad de Barratt - VARNOST SPA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="test-progress">
+            <div class="test-progress-bar" id="progressBar"></div>
+        </div>
+        
+        <!-- Sección de acceso -->
+        <section id="access" class="section active fade-in">
+            <h1>Test de Impulsividad de Barratt</h1>
+            <div class="logo-container">
+                <h2>VARNOST SPA</h2>
+            </div>
+            
+            <form id="access-form">
+                <div class="form-group">
+                    <label for="access-key">Ingrese la clave de acceso:</label>
+                    <input type="password" id="access-key" required>
+                </div>
+                
+                <button type="submit" class="btn">Acceder</button>
+            </form>
+        </section>
+        
+        <!-- Sección de datos personales -->
+        <section id="personal-info" class="section fade-in">
+            <h1>Test de Impulsividad de Barratt</h1>
+            <h2>Datos Personales</h2>
+            
+            <form id="personal-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cedula">Cédula de Identidad:</label>
+                    <input type="text" id="cedula" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
+                    <input type="date" id="fecha-nacimiento" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edad">Edad:</label>
+                    <input type="text" id="edad" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefono">Número de Teléfono:</label>
+                    <input type="tel" id="telefono" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <button type="submit" class="btn">Continuar</button>
+            </form>
+        </section>
+        
+        <!-- Sección de introducción -->
+        <section id="introduction" class="section fade-in">
+            <h1>Test de Impulsividad de Barratt</h1>
+            <h2>Introducción</h2>
+            
+            <p>El Test de Impulsividad de Barratt (BIS-11) es una herramienta diseñada para evaluar la impulsividad como rasgo de personalidad. A continuación se le presentarán 30 preguntas que debe responder según la frecuencia con la que experimenta cada situación.</p>
+            
+            <p>Para cada pregunta, seleccione una de las siguientes opciones:</p>
+            <ul style="list-style-type: none; margin-left: 20px; margin-bottom: 20px;">
+                <li>• Raramente o nunca</li>
+                <li>• Ocasionalmente</li>
+                <li>• A menudo</li>
+                <li>• Siempre o casi siempre</li>
+            </ul>
+            
+            <p>No existen respuestas correctas o incorrectas. Por favor, responda con honestidad según su experiencia personal.</p>
+            
+            <button id="start-test" class="btn">Comenzar Test</button>
+        </section>
+        
+        <!-- Sección de preguntas -->
+        <section id="questions" class="section fade-in">
+            <h1>Test de Impulsividad de Barratt</h1>
+            
+            <div id="question-container">
+                <!-- Las preguntas se generarán dinámicamente aquí -->
+            </div>
+            
+            <div class="btn-container">
+                <button id="prev-question" class="btn btn-back">Anterior</button>
+                <button id="next-question" class="btn">Siguiente</button>
+            </div>
+        </section>
+        
+        <!-- Sección de finalización -->
+        <section id="completion" class="section fade-in">
+            <div class="completion-box">
+                <h1>TEST FINALIZADO</h1>
+                <p>HAS FINALIZADO EL TEST DE BARRATT (BIS-11), DE LA EMPRESA VARNOST SPA.</p>
+                <p class="email-sent">Los resultados han sido enviados al correo electrónico.</p>
+                <button id="close-test" class="btn">Cerrar</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal de carga para envío de correo -->
+    <div id="loading-modal" class="modal">
+        <div class="modal-content">
+            <div class="loader"></div>
+            <p>Enviando resultados...</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        // Inicializar EmailJS con tu User ID
+        (function() {
+            emailjs.init("xxoA8TvPv9VNgWvtL");
+        })();
+    </script>
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
